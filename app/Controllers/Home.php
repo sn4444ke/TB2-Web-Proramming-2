@@ -16,4 +16,19 @@ class Home extends BaseController
     {
         return view('HomeView');
     }
+
+    public function table()
+    {
+        return view('TableView');
+    }
+
+    public function login()
+    {
+        return view('LoginView');
+    }
+
+    public function newHome()
+    {
+        return view('NewHomeView');
+    }
 }
