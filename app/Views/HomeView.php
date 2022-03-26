@@ -12,11 +12,11 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="<?php base_url() ?>/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php base_url() ?>/template/css/font.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url() ?>/template/css/font.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?php base_url() ?>/template/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>/template/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -41,9 +41,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                <a class="nav-link" href="<?php echo base_url() ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -63,9 +63,8 @@
                 </a>
                 <div id="menu-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/Buku/List' ?>">List Buku</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/Buku/Tambah' ?>">Tambah Buku</a>
                     </div>
                 </div>
             </li>
@@ -79,9 +78,8 @@
                 </a>
                 <div id="menu-user" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/User/List' ?>">List User</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/User/Tambah' ?>">Tambah User</a>
                     </div>
                 </div>
             </li>
@@ -95,16 +93,15 @@
                 </a>
                 <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Kembali' ?>">Pengembalian Buku</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url().'/home/table' ?>">
+                <a class="nav-link" href="<?php echo base_url().'/home/table' ?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
@@ -241,7 +238,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="<?php base_url() ?>/template/img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="<?php echo base_url() ?>/template/img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -253,7 +250,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="<?php base_url() ?>/template/img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="<?php echo base_url() ?>/template/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -265,7 +262,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="<?php base_url() ?>/template/img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="<?php echo base_url() ?>/template/img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -298,7 +295,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="<?php base_url() ?>/template/img/undraw_profile.svg">
+                                    src="<?php echo base_url() ?>/template/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -628,7 +625,7 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="<?php base_url() ?>/template/img/undraw_posting_photo.svg" alt="...">
+                                            src="<?php echo base_url() ?>/template/img/undraw_posting_photo.svg" alt="...">
                                     </div>
                                     <p>Add some quality, svg illustrations to your project courtesy of <a
                                             target="_blank" rel="nofollow" href="">unDraw</a>, a
@@ -704,21 +701,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?php base_url() ?>/template/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php base_url() ?>/template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url() ?>/template/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>/template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="<?php base_url() ?>/template/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?php echo base_url() ?>/template/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="<?php base_url() ?>/template/js/sb-admin-2.min.js"></script>
+    <script src="<?php echo base_url() ?>/template/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="<?php base_url() ?>/template/vendor/chart.js/Chart.min.js"></script>
+    <script src="<?php echo base_url() ?>/template/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="<?php base_url() ?>/template/js/demo/chart-area-demo.js"></script>
-    <script src="<?php base_url() ?>/template/js/demo/chart-pie-demo.js"></script>
+    <script src="<?php echo base_url() ?>/template/js/demo/chart-area-demo.js"></script>
+    <script src="<?php echo base_url() ?>/template/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
