@@ -360,6 +360,7 @@
                                             <th>Tahun Penerbit</th>
                                             <th>Rak</th>
                                             <th>Stok</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -373,6 +374,10 @@
                                                 <td><?php echo $value->tahun_penerbit ?></td>
                                                 <td><?php echo $value->nama_rak ?></td>
                                                 <td><?php echo $value->stok ?></td>
+                                                <td align="center">
+                                                    <a href="<?php echo base_url().'/Buku/EditBuku/'.$value->id_buku ?>"><i class="fas fa-edit"></i></a>
+                                                    <a href="<?php echo base_url().'/Buku/HapusBuku/'.$value->id_buku ?>"><i class="fas fa-trash"></i></a>
+                                                </td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

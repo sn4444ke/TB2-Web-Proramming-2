@@ -28,25 +28,50 @@ class Buku extends BaseController
         $dataRak = model("Rak");
 
         return view('TambahBuku', [
-            'dataRak' => $dataRak->findAll()
+            'dataRak' => $dataRak->findAll(),
+            'action' => base_url().'/Buku/DoTambahBuku'
         ]);
     }
 
     public function DoTambahBuku()
     {
+        $data = $this->request->getPost();
         $buku = model("Buku");
 
         if(!$buku->where('kode_buku', $this->request->getVar('kode_buku'))->find()) {
-            $buku->insert([
-                'kode_buku'      => $this->request->getVar('kode_buku'),
-                'judul_buku'     => $this->request->getVar('judul_buku'),
-                'penulis_buku'   => $this->request->getVar('penulis_buku'),
-                'penerbit_buku'  => $this->request->getVar('penerbit_buku'),
-                'tahun_penerbit' => $this->request->getVar('tahun_penerbit'),
-                'id_rak'         => $this->request->getVar('id_rak'),
-                'stok'           => $this->request->getVar('stok')
-            ]);
+            $buku->insert($data);
         }
+
+        return redirect()->to(base_url('Buku/List'));
+    }
+
+    public function HapusBuku($id)
+    {
+        $buku = model("Buku");
+        $buku->where('id_buku', $id)->delete();
+
+        return redirect()->to(base_url('Buku/List'));
+    }
+
+    public function EditBuku($id)
+    {
+        $dataRak = model("Rak");
+        $buku = model("Buku");
+        $buku = $buku->where('id_buku', $id)->first();
+
+        return view('TambahBuku', [
+            'dataBuku' => $buku,
+            'dataRak' => $dataRak->findAll(),
+            'action' => base_url().'/Buku/DoEdit/'.$id
+        ]);
+    }
+
+    public function DoEdit($id)
+    {
+        $data = $this->request->getPost();
+        $buku = model("Buku");
+        $buku = $buku->where('id_buku', $id);
+        $buku->update($id, $data);
 
         return redirect()->to(base_url('Buku/List'));
     }

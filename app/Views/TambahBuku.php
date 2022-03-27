@@ -347,44 +347,46 @@
                             <h6 class="m-0 font-weight-bold text-primary">Tambah Data Buku</h6>
                         </div>
                         <div class="card-body">
-                            <form action="<?php echo base_url().'/Buku/DoTambahBuku'; ?>" method="POST">
+                            <form action="<?php echo $action ?>" method="POST">
+                                <input name="id_buku" type="hidden" class="form-control" id="inputEmail4" value="<?php echo $dataBuku->id_buku ?>">
+
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label for="inputEmail4">Kode Buku</label>
-                                    <input name="kode_buku" type="text" class="form-control" id="inputEmail4" required>
+                                    <input name="kode_buku" type="text" class="form-control" id="inputEmail4" value="<?php echo $dataBuku->kode_buku ?>" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                     <label for="inputPassword4">Judul Buku</label>
-                                    <input name="judul_buku" type="text" class="form-control" id="inputPassword4" required>
+                                    <input name="judul_buku" type="text" class="form-control" id="inputPassword4" value="<?php echo $dataBuku->judul_buku ?>" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="penulis-buku">Penulis Buku</label>
-                                    <input name="penulis_buku" type="text" class="form-control" id="penulis-buku" required>
+                                    <input name="penulis_buku" type="text" class="form-control" id="penulis-buku" value="<?php echo $dataBuku->penulis_buku ?>" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="penerbit-buku">Penerbit Buku</label>
-                                    <input name="penerbit_buku" type="text" class="form-control" id="penerbit-buku" required>
+                                    <input name="penerbit_buku" type="text" class="form-control" id="penerbit-buku" value="<?php echo $dataBuku->penerbit_buku ?>" required>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label for="tahun-penerbit">Tahun Penerbitan</label>
-                                    <input name="tahun_penerbit" type="number" min="1900" max="2099" step="1" value="<?php echo date('Y') ?>" class="form-control" id="tahun-penerbit" / required>
+                                    <input name="tahun_penerbit" type="number" min="1900" max="2099" step="1" class="form-control" id="tahun-penerbit" value="<?php echo $dataBuku->tahun_penerbit ?: date('Y') ?>" required>
                                     </div>
                                     <div class="form-group col-md-4">
                                     <label for="rak">Rak</label>
                                     <select id="rak" class="form-control" name="id_rak" required>
                                         <?php foreach($dataRak as $value) { ?>
-                                            <option value="<?php echo $value->id_rak ?>"><?php echo $value->nama_rak ?></option>
+                                            <option value="<?php echo $value->id_rak ?>" <?php echo $value->id_rak == $dataBuku->id_rak || $value->id_rak == 1 ? 'selected' : '' ?>><?php echo $value->nama_rak ?></option>
                                         <?php } ?>
                                     </select>
                                     </div>
                                     <div class="form-group col-md-2">
-                                    <label for="stok">Stok</label>
-                                    <input name="stok" type="number" class="form-control" id="stok" value="1" required>
+                                        <label for="stok">Stok</label>
+                                        <input name="stok" type="text" class="form-control" id="stok" value="<?php echo isset($dataBuku->stok) ? $dataBuku->stok : 1 ?>" required>
                                     </div>
                                 </div>
 
