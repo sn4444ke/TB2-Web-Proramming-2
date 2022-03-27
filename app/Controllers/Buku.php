@@ -15,7 +15,7 @@ class Buku extends BaseController
 
     public function Tambah()
     {
-        return view('FormView');
+        return view('TambahBuku');
     }
 
     public function Search()
