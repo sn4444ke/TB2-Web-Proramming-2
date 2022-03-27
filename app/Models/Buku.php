@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Buku extends Model
 {
     protected $table      = 'buku';
-    protected $returnType = \App\Entities\DataBuku::class;
+    protected $returnType = "object";
 
     protected $allowedFields = [
         'kode_buku',
