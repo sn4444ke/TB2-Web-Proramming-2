@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class Buku extends Model
 {
     protected $table      = 'buku';
+    protected $primaryKey = 'id_buku';
     protected $returnType = "object";
 
     protected $allowedFields = [
