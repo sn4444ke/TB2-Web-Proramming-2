@@ -13,9 +13,4 @@ class Dashboard extends BaseController
     {
         return view('TableView');
     }
-
-    public function newHome()
-    {
-        return view('NewDashboardView');
-    }
 }
