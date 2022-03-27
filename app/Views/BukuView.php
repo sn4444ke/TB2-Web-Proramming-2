@@ -337,23 +337,27 @@
                                 <table class="table table-bordered table-stripped table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Kode Buku</th>
                                             <th>Judul Buku</th>
                                             <th>Penulis Buku</th>
                                             <th>Penerbit Buku</th>
                                             <th>Tahun Penerbit</th>
+                                            <th>Rak</th>
                                             <th>Stok</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach($data as $value) { ?>
+                                        <?php foreach($data as $index => $value) { ?>
                                             <tr>
-                                                <td><?php echo $value->kode_buku; ?></td>
-                                                <td><?php echo $value->judul_buku; ?></td>
-                                                <td><?php echo $value->penulis_buku; ?></td>
-                                                <td><?php echo $value->penerbit_buku; ?></td>
-                                                <td><?php echo $value->tahun_penerbit; ?></td>
-                                                <td><?php echo $value->stok; ?></td>
+                                                <td><?php echo $index+1 ?></td>
+                                                <td><?php echo $value->kode_buku ?></td>
+                                                <td><?php echo $value->judul_buku ?></td>
+                                                <td><?php echo $value->penulis_buku ?></td>
+                                                <td><?php echo $value->penerbit_buku ?></td>
+                                                <td><?php echo $value->tahun_penerbit ?></td>
+                                                <td><?php echo $value->nama_rak ?></td>
+                                                <td><?php echo $value->stok ?></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

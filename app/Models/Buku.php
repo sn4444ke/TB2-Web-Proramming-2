@@ -29,4 +29,12 @@ class Buku extends Model
         'id_rak' => "required",
         'stok' => "required"
     ];
+
+    public function getAll(){
+        $builder = $this->db->table('buku');
+        $builder->join('Rak', 'buku.id_rak = rak.id_rak');
+        $query = $builder->get();
+
+        return $query->getResult();
+    }
 }

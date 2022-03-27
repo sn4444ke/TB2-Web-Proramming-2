@@ -7,9 +7,9 @@ class Buku extends BaseController
     public function List()
     {
         $buku = model("Buku");
-        
+
         return view('BukuView', [
-            'data' => $buku->findAll()
+            'data' => $buku->getAll()
         ]);
     }
 
