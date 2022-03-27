@@ -54,11 +54,11 @@
                 Menu
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+           <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-buku"
                     aria-expanded="true" aria-controls="menu-buku">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-fw fa-book"></i>
                     <span>Buku</span>
                 </a>
                 <div id="menu-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -71,9 +71,24 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-rak"
+                    aria-expanded="true" aria-controls="menu-rak">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Rak</span>
+                </a>
+                <div id="menu-rak" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?php echo base_url().'/Rak/List' ?>">List Rak</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/Rak/Tambah' ?>">Tambah Rak</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-user"
                     aria-expanded="true" aria-controls="menu-user">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-fw fa-user"></i>
                     <span>User</span>
                 </a>
                 <div id="menu-user" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">

@@ -11,11 +11,11 @@ class PeminjamanBuku extends BaseController
 
     public function Pinjam()
     {
-        return view('TableView');
+        return view('FormView');
     }
 
     public function Kembali()
     {
-        return view('TableView');
+        return view('FormView');
     }
 }
