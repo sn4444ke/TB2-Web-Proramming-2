@@ -372,7 +372,7 @@
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                     <label for="tahun-penerbit">Tahun Penerbitan</label>
                                     <input name="tahun_penerbit" type="number" min="1900" max="2099" step="1" class="form-control" id="tahun-penerbit" value="<?php echo $dataBuku->tahun_penerbit ?: date('Y') ?>" required>
                                     </div>
@@ -385,8 +385,12 @@
                                     </select>
                                     </div>
                                     <div class="form-group col-md-2">
+                                        <label for="harga_per_hari">Harga Perhari (Rp)</label>
+                                        <input name="harga_per_hari" type="number" step="1000" class="form-control" id="harga_per_hari" value="<?php echo $dataBuku->harga_per_hari ?: 1000 ?>" required>
+                                    </div>
+                                    <div class="form-group col-md-2">
                                         <label for="stok">Stok</label>
-                                        <input name="stok" type="text" class="form-control" id="stok" value="<?php echo isset($dataBuku->stok) ? $dataBuku->stok : 1 ?>" required>
+                                        <input name="stok" type="number" step="1" class="form-control" id="stok" value="<?php echo isset($dataBuku->stok) ? $dataBuku->stok : 1 ?>" required>
                                     </div>
                                 </div>
 

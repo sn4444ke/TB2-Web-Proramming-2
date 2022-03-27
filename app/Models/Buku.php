@@ -28,6 +28,7 @@ class Buku extends Model
         'penerbit_buku' => "required",
         'tahun_penerbit' => "required",
         'id_rak' => "required",
+        'harga_per_hari' => "required",
         'stok' => "required"
     ];
 
