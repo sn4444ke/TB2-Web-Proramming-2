@@ -290,8 +290,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="<?php echo base_url() ?>/template/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -362,14 +361,15 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                     <label for="rak">Rak</label>
-                                    <select id="rak" class="form-control" name="rak" required>
-                                        <option value="" selected>Choose...</option>
-                                        <option value="1">Cek</option>
+                                    <select id="rak" class="form-control" name="id_rak" required>
+                                        <?php foreach($dataRak as $value) { ?>
+                                            <option value="<?php echo $value->id_rak ?>"><?php echo $value->nama_rak ?></option>
+                                        <?php } ?>
                                     </select>
                                     </div>
                                     <div class="form-group col-md-2">
                                     <label for="stok">Stok</label>
-                                    <input name="stok" type="number" class="form-control" id="stok" required>
+                                    <input name="stok" type="number" class="form-control" id="stok" value="1" required>
                                     </div>
                                 </div>
 

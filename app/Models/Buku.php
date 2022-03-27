@@ -15,7 +15,7 @@ class Buku extends Model
         'penulis_buku',
         'penerbit_buku',
         'tahun_penerbit',
-        'rak',
+        'id_rak',
         'stok'
     ];
 
@@ -26,6 +26,7 @@ class Buku extends Model
         'penulis_buku' => "required",
         'penerbit_buku' => "required",
         'tahun_penerbit' => "required",
+        'id_rak' => "required",
         'stok' => "required"
     ];
 }
