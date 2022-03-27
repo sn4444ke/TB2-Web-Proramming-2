@@ -103,7 +103,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-pinjaman-buku"
                     aria-expanded="true" aria-controls="menu-pinjaman-buku">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-fw fa-book-reader"></i>
                     <span>Peminjaman Buku</span>
                 </a>
                 <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
