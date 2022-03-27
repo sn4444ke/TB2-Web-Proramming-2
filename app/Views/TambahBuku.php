@@ -325,67 +325,57 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Data Buku</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Tambah Data Buku</h6>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="<?php echo base_url().'/Buku/DoTambahBuku'; ?>" method="POST">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    <label for="inputEmail4">Kode Buku</label>
+                                    <input name="kode_buku" type="text" class="form-control" id="inputEmail4" required>
                                     </div>
                                     <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Password</label>
-                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                    <label for="inputPassword4">Judul Buku</label>
+                                    <input name="judul_buku" type="text" class="form-control" id="inputPassword4" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                    <label for="penulis-buku">Penulis Buku</label>
+                                    <input name="penulis_buku" type="text" class="form-control" id="penulis-buku" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputAddress2">Address 2</label>
-                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                    <label for="penerbit-buku">Penerbit Buku</label>
+                                    <input name="penerbit_buku" type="text" class="form-control" id="penerbit-buku" required>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                    <label for="inputCity">City</label>
-                                    <input type="text" class="form-control" id="inputCity">
+                                    <label for="tahun-penerbit">Tahun Penerbitan</label>
+                                    <input name="tahun_penerbit" type="number" min="1900" max="2099" step="1" value="<?php echo date('Y') ?>" class="form-control" id="tahun-penerbit" / required>
                                     </div>
                                     <div class="form-group col-md-4">
-                                    <label for="inputState">State</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
+                                    <label for="rak">Rak</label>
+                                    <select id="rak" class="form-control" name="rak" required>
+                                        <option value="" selected>Choose...</option>
+                                        <option value="1">Cek</option>
                                     </select>
                                     </div>
                                     <div class="form-group col-md-2">
-                                    <label for="inputZip">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
-                                        Check me out
-                                    </label>
+                                    <label for="stok">Stok</label>
+                                    <input name="stok" type="number" class="form-control" id="stok" required>
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
                             </form>
                         </div>
                     </div>
