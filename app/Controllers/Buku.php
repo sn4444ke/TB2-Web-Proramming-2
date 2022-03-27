@@ -6,7 +6,7 @@ class Buku extends BaseController
 {
     public function List()
     {
-        $buku = model("App\Models\Buku");
+        $buku = model("Buku");
         
         return view('BukuView', [
             'data' => $buku->findAll()
@@ -15,7 +15,7 @@ class Buku extends BaseController
 
     public function Search()
     {
-        $buku = model("App\Models\Buku");
+        $buku = model("Buku");
         $buku = $buku->where('kode_buku', $_GET['search'])->find();
         
         return view('BukuView', [
@@ -25,7 +25,7 @@ class Buku extends BaseController
 
     public function Tambah()
     {
-        $dataRak = model("App\Models\Rak");
+        $dataRak = model("Rak");
 
         return view('TambahBuku', [
             'dataRak' => $dataRak->findAll()
@@ -34,9 +34,9 @@ class Buku extends BaseController
 
     public function DoTambahBuku()
     {
-        $buku = model("App\Models\Buku");
+        $buku = model("Buku");
 
-        if(!$buku->where('kode_buku', $this->request->getVar('kode_buku'))->find()){
+        if(!$buku->where('kode_buku', $this->request->getVar('kode_buku'))->find()) {
             $buku->insert([
                 'kode_buku'      => $this->request->getVar('kode_buku'),
                 'judul_buku'     => $this->request->getVar('judul_buku'),
@@ -49,6 +49,5 @@ class Buku extends BaseController
         }
 
         return redirect()->to(base_url('Buku/List'));
-
     }
 }
