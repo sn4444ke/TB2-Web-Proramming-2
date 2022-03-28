@@ -6,7 +6,11 @@ class PeminjamanBuku extends BaseController
 {
     public function List()
     {
-        return view('PeminjamanBukuView');
+        $data = model('Peminjaman')
+
+        return view('PeminjamanBukuView',[
+            'data' => $data
+        ]);
     }
 
     public function Pinjam()

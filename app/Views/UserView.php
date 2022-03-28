@@ -352,6 +352,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Nama</th>
                                             <th>Username</th>
                                             <th>Jabatan</th>
@@ -363,8 +364,9 @@
                                     </thead>
                                     
                                     <tbody>
-                                        <?php foreach($data as $value) { ?>
+                                        <?php foreach($data as $index => $value) { ?>
                                             <tr>
+                                                <td><?php echo $index+1 ?></td>
                                                 <td><?php echo $value->nama_petugas; ?></td>
                                                 <td><?php echo $value->username_petugas; ?></td>
                                                 <td><?php echo $value->jabatan_petugas; ?></td>

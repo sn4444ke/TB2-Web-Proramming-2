@@ -99,21 +99,6 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-pengembalian-buku"
-                    aria-expanded="true" aria-controls="menu-pengembalian-buku">
-                    <i class="fas fa-fw fa-dollar-sign"></i>
-                    <span>Pengembalian Buku</span>
-                </a>
-                <div id="menu-pengembalian-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url().'/PengembalianBuku/List' ?>">List Pengembalian</a>
-                        <a class="collapse-item" href="<?php echo base_url().'/PengembalianBuku/Kembali' ?>">Pengembalian Buku</a>
-                    </div>
-                </div>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
