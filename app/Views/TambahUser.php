@@ -93,8 +93,23 @@
                 </a>
                 <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Pinjam Buku</a>
-                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Kembali' ?>">Kembalikan Buku</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/List' ?>">List Peminjaman</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-pengembalian-buku"
+                    aria-expanded="true" aria-controls="menu-pengembalian-buku">
+                    <i class="fas fa-fw fa-dollar-sign"></i>
+                    <span>Pengembalian Buku</span>
+                </a>
+                <div id="menu-pengembalian-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?php echo base_url().'/PengembalianBuku/List' ?>">List Pengembalian</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PengembalianBuku/Kembali' ?>">Pengembalian Buku</a>
                     </div>
                 </div>
             </li>
@@ -324,62 +339,56 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Users</h1>
-                    
+                    <h1 class="h3 mb-2 text-gray-800">Data User</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Users</h6>
-
-                            <!-- Topbar Search -->
-                            <div class="d-none d-sm-inline-block">
-                                <!-- Topbar Search -->
-                                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?php echo base_url().'/User/Search'; ?>" method="GET">
-                                    <div class="input-group">
-                                        <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="submit">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Tambah Data User</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <th>Username</th>
-                                            <th>Jabatan</th>
-                                            <th>Alamat</th>
-                                            <th>No Telp</th>
-                                            <th>Action</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    
-                                    <tbody>
-                                        <?php foreach($data as $value) { ?>
-                                            <tr>
-                                                <td><?php echo $value->nama_petugas; ?></td>
-                                                <td><?php echo $value->username_petugas; ?></td>
-                                                <td><?php echo $value->jabatan_petugas; ?></td>
-                                                <td><?php echo $value->alamat_petugas; ?></td>
-                                                <td><?php echo $value->no_telp_petugas; ?></td>
-                                                <td align="center">
-                                                    <a href="<?php echo base_url().'/User/EditUser/'.$value->id_petugas ?>"><i class="fas fa-edit"></i></a>
-                                                    <a href="<?php echo base_url().'/User/HapusUser/'.$value->id_petugas ?>"><i class="fas fa-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
+                            <form action="<?php echo $action ?>" method="POST">
+                                <input name="id_petugas" type="hidden" class="form-control" id="id_petugas" value="<?php echo $dataUser->id_petugas; ?>">
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Nama</label>
+                                    <input name="nama_petugas" type="text" class="form-control" id="nama_petugas" value="<?php echo $dataUser->nama_petugas; ?>" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Jabatan</label>
+                                    <input name="jabatan_petugas" type="text" class="form-control" id="jabatan_petugas" value="<?php echo $dataUser->jabatan_petugas; ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Username</label>
+                                    <input name="username_petugas" type="text" class="form-control" id="username_petugas" value="<?php echo $dataUser->username_petugas; ?>" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Password</label>
+                                    <input name="password_petugas" type="Password" class="form-control" id="password_petugas" value="<?php echo $dataUser->password_petugas; ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Alamat</label>
+                                    <input name="alamat_petugas" type="text" class="form-control" id="alamat_petugas" value="<?php echo $dataUser->alamat_petugas; ?>" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Nomor Telp</label>
+                                    <input name="no_telp_petugas" type="text" class="form-control" id="no_telp_petugas" value="<?php echo $dataUser->no_telp_petugas; ?>" required>
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
