@@ -342,7 +342,10 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                     <label for="inputPassword4">Jabatan</label>
-                                    <input name="jabatan_petugas" type="text" class="form-control" id="jabatan_petugas" value="<?php echo $dataUser->jabatan_petugas; ?>" required>
+                                        <select id="jabatan_petugas" class="form-control" name="jabatan_petugas" required>
+                                            <option value="Admin" <?php echo $dataUser->jabatan_petugas == "Admin" ? 'selected' : '' ?>>Admin</option>
+                                            <option value="User" <?php echo $dataUser->jabatan_petugas == "User" ? 'selected' : '' ?>>User</option>
+                                        </select>
                                     </div>
                                 </div>
 

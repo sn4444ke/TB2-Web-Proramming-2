@@ -324,42 +324,48 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Peminjaman Buku</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Peminjaman</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Peminjaman Buku</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Peminjaman Buku</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Kode Peminjaman</th>
-                                            <th>Nama Peminjam</th>
-                                            <th>Judul Buku</th>
-                                            <th>Tanggal Pinjam</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($data as $key => $value) { ?>
-                                            <tr>
-                                                <td><?php echo $key+1 ?></td>
-                                                <td><?php echo $value->kode_peminjaman ?></td>
-                                                <td><?php echo $value->nama_anggota ?></td>
-                                                <td><?php echo $value->judul_buku ?></td>
-                                                <td><?php echo date('d M Y', $value->tanggal_pinjam) ?></td>
-                                                <td align="center">
-                                                    <a href="<?php echo base_url().'/PeminjamanBuku/KembalikanBuku/'.$value->id_peminjaman ?>"><i class="fas fa-check"></i></a>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <form action="<?php echo base_url().'/PeminjamanBuku/DoPinjam' ?>" method="POST">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="peminjam">Peminjam</label>
+                                        <select id="peminjam" class="form-control" name="id_anggota" required>
+                                            <option value="">-- Pilih Nama Peminjam --</option>
+                                            <?php foreach($dataAnggota as $value) { ?>
+                                                <option value="<?php echo $value->id_anggota ?>"><?php echo $value->kode_anggota ?> - <?php echo $value->nama_anggota ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="judul_buku">Judul Buku</label>
+                                        <select id="judul_buku" class="form-control" name="id_buku" required>
+                                            <option value="">-- Pilih Judul Buku --</option>
+                                            <?php foreach($dataBuku as $value) { ?>
+                                                <option value="<?php echo $value->id_buku ?>"><?php echo $value->kode_buku ?> - <?php echo $value->judul_buku ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label for="tanggal_kembali">Estimasi Tanggal Kembali</label>
+                                        <input type="date" class="form-control" id="tanggal_kembali" name="tanggal_kembali" required>
+                                    </div>
+                                </div>
+                                    
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
                     </div>
 
@@ -405,7 +411,6 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="<?php echo base_url().'/login' ?>">Logout</a>
-
                 </div>
             </div>
         </div>
