@@ -21,7 +21,9 @@ class PeminjamanBuku extends BaseController
 
     public function KembalikanBuku($id)
     {
-        return view('FormView');
+        return view('PengembalianView', [
+            'dataPeminjaman' => model('Peminjaman')->getAll()
+        ]);
     }
 
     
