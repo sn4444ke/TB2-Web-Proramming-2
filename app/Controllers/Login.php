@@ -6,6 +6,30 @@ class Login extends BaseController
 {
     public function index()
     {
+        // session()->setFlashdata('item', 'value');
+        // session()->set([
+        //     'islogin' => true,
+        // ]);
+
+        // var_dump(session()->getFlashdata('item'));
+        
         return view('LoginView');
+    }
+    public function save()
+    {
+        $petugas = model("User");
+        $data = $this->request->getVar();
+        
+        $user = $petugas->where('username_petugas', $data['user'])->where('password_petugas', $data['password'])->first();
+        
+        if ($user) {
+            session()->set([
+                'islogin' => true,
+            ]);
+            return redirect()->to(base_url('dashboard'));
+        } else {
+            session()->setFlashdata('item', 'value');
+            return redirect()->to(base_url('login'));
+        }
     }
 }

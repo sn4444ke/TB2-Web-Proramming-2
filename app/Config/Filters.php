@@ -68,7 +68,7 @@ class Filters extends BaseConfig
     public $filters = [
         'authfilter' => [
             'before' => [
-                'dashboard', 'buku', 'peminjamanbuku', 'User'
+                '', 'dashboard', 'buku', 'peminjamanbuku', 'User'
             ]
         ]
     ];
