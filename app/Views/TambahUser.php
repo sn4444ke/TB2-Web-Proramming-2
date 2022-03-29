@@ -86,6 +86,21 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-anggota"
+                    aria-expanded="true" aria-controls="menu-anggota">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Anggota</span>
+                </a>
+                <div id="menu-anggota" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?php echo base_url().'/Anggota/List' ?>">List Anggota</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/Anggota/Tambah' ?>">Tambah Anggota</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-pinjaman-buku"
                     aria-expanded="true" aria-controls="menu-pinjaman-buku">
                     <i class="fas fa-fw fa-book-reader"></i>

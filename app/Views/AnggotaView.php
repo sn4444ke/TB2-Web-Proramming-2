@@ -84,7 +84,7 @@
                 </div>
             </li>
 
-             <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-anggota"
                     aria-expanded="true" aria-controls="menu-anggota">
@@ -108,8 +108,8 @@
                 </a>
                 <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/List' ?>">List Peminjaman</a>
-                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Pinjam Buku</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Kembali' ?>">Kembalikan Buku</a>
                     </div>
                 </div>
             </li>
@@ -339,65 +339,64 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Data Buku</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Anggota</h1>
+                    
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tambah Data Buku</h6>
+                        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Data Anggota</h6>
+
+                            <!-- Topbar Search -->
+                            <div class="d-none d-sm-inline-block">
+                                <!-- Topbar Search -->
+                                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?php echo base_url().'/Anggota/Search'; ?>" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <div class="card-body">
-                            <form action="<?php echo $action ?>" method="POST">
-                                <input name="id_buku" type="hidden" class="form-control" id="inputEmail4" value="<?php echo $dataBuku->id_buku ?>">
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Kode Buku</label>
-                                    <input name="kode_buku" type="text" class="form-control" id="inputEmail4" value="<?php echo $dataBuku->kode_buku ?>" required>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Judul Buku</label>
-                                    <input name="judul_buku" type="text" class="form-control" id="inputPassword4" value="<?php echo $dataBuku->judul_buku ?>" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="penulis-buku">Penulis Buku</label>
-                                    <input name="penulis_buku" type="text" class="form-control" id="penulis-buku" value="<?php echo $dataBuku->penulis_buku ?>" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="penerbit-buku">Penerbit Buku</label>
-                                    <input name="penerbit_buku" type="text" class="form-control" id="penerbit-buku" value="<?php echo $dataBuku->penerbit_buku ?>" required>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                    <label for="tahun-penerbit">Tahun Penerbitan</label>
-                                    <input name="tahun_penerbit" type="number" min="1900" max="2099" step="1" class="form-control" id="tahun-penerbit" value="<?php echo $dataBuku->tahun_penerbit ?: date('Y') ?>" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                    <label for="rak">Rak</label>
-                                    <select id="rak" class="form-control" name="id_rak" required>
-                                        <?php foreach($dataRak as $value) { ?>
-                                            <option value="<?php echo $value->id_rak ?>" <?php echo $value->id_rak == $dataBuku->id_rak || $value->id_rak == 1 ? 'selected' : '' ?>><?php echo $value->nama_rak ?></option>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama</th>
+                                            <th>Kode</th>
+                                            <th>Jurusan</th>
+                                            <th>Alamat</th>
+                                            <th>No Telp</th>
+                                            <th>Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        <?php foreach($data as $index => $value) { ?>
+                                            <tr>
+                                                <td><?php echo $index+1 ?></td>
+                                                <td><?php echo $value->nama_anggota; ?></td>
+                                                <td><?php echo $value->kode_anggota; ?></td>
+                                                <td><?php echo $value->jurusan_anggota; ?></td>
+                                                <td><?php echo $value->alamat_anggota; ?></td>
+                                                <td><?php echo $value->no_telp_anggota; ?></td>
+                                                <td align="center">
+                                                    <a href="<?php echo base_url().'/Anggota/EditAnggota/'.$value->id_anggota ?>"><i class="fas fa-edit"></i></a>
+                                                    <a href="<?php echo base_url().'/Anggota/HapusAnggota/'.$value->id_anggota ?>"><i class="fas fa-trash"></i></a>
+                                                </td>
+                                            </tr>
                                         <?php } ?>
-                                    </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="harga_per_hari">Harga Perhari (Rp)</label>
-                                        <input name="harga_per_hari" type="number" step="1000" class="form-control" id="harga_per_hari" value="<?php echo $dataBuku->harga_per_hari ?: 1000 ?>" required>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="stok">Stok</label>
-                                        <input name="stok" type="number" step="1" class="form-control" id="stok" value="<?php echo isset($dataBuku->stok) ? $dataBuku->stok : 1 ?>" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
