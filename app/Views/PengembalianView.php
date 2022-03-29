@@ -324,46 +324,65 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Peminjaman</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Pengembalian</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Peminjaman Buku</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Pengembalian Buku</h6>
                         </div>
                         <div class="card-body">
-                            <form action="<?php echo base_url().'/PeminjamanBuku/DoPinjam' ?>" method="POST">
+                            <form>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="peminjam">Peminjam</label>
-                                        <select id="peminjam" class="form-control" name="id_anggota" required>
-                                            <option value="">-- Pilih Nama Peminjam --</option>
-                                            <?php foreach($dataAnggota as $value) { ?>
-                                                <option value="<?php echo $value->id_anggota ?>"><?php echo $value->kode_anggota ?> - <?php echo $value->nama_anggota ?></option>
-                                            <?php } ?>
-                                        </select>
+                                        <label for="kode_peminjaman">Kode Peminjaman</label>
+                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $dataPeminjaman->kode_peminjaman ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="judul_buku">Judul Buku</label>
-                                        <select id="judul_buku" class="form-control" name="id_buku" required>
-                                            <option value="">-- Pilih Judul Buku --</option>
-                                            <?php foreach($dataBuku as $value) { ?>
-                                                <option value="<?php echo $value->id_buku ?>"><?php echo $value->kode_buku ?> - <?php echo $value->judul_buku ?></option>
-                                            <?php } ?>
-                                        </select>
+                                        <label for="peminjam">Peminjam</label>
+                                        <input type="email" class="form-control" id="peminjam" readonly="true" value="<?php echo $dataPeminjaman->nama_anggota ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
-                                        <label for="tanggal_kembali">Estimasi Tanggal Kembali</label>
-                                        <input type="date" class="form-control" id="tanggal_kembali" name="tanggal_kembali" min="<?php echo date('Y-m-d') ?>" required>
+                                        <label for="tanggal_pinjam">Tanggal Pinjam</label>
+                                        <input type="email" class="form-control" id="tanggal_pinjam" readonly="true" value="<?php echo $dataPeminjaman->tanggal_pinjam ?>">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="estimasi_tanggal_kembali">Tanggal Kembali (Estimasi)</label>
+                                        <input type="email" class="form-control" id="estimasi_tanggal_kembali" readonly="true" value="<?php echo $dataPeminjaman->tanggal_kembali ?>">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="kode_peminjaman">Tanggal Kembali (Aktual)</label>
+                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo date('Y-m-d') ?>">
                                     </div>
                                 </div>
-                                    
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="kode_peminjaman">Total Terlambat (Hari)</label>
+                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalHariTerlambat ?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="kode_peminjaman">Total Denda (Rp)</label>
+                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalDenda ?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="kode_peminjaman">Total Bayar (Rp)</label>
+                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalBayar ?>">
+                                    </div>
+                                </div>
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>

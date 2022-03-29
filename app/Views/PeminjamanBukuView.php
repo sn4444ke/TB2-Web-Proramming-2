@@ -341,6 +341,7 @@
                                             <th>Nama Peminjam</th>
                                             <th>Judul Buku</th>
                                             <th>Tanggal Pinjam</th>
+                                            <th>Tanggal Kembali</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -351,7 +352,8 @@
                                                 <td><?php echo $value->kode_peminjaman ?></td>
                                                 <td><?php echo $value->nama_anggota ?></td>
                                                 <td><?php echo $value->judul_buku ?></td>
-                                                <td><?php echo date('d M Y', $value->tanggal_pinjam) ?></td>
+                                                <td><?php echo $value->tanggal_pinjam ?></td>
+                                                <td><?php echo $value->tanggal_kembali ?></td>
                                                 <td align="center">
                                                     <a href="<?php echo base_url().'/PeminjamanBuku/KembalikanBuku/'.$value->id_peminjaman ?>"><i class="fas fa-check"></i></a>
                                                 </td>

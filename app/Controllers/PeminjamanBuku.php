@@ -2,12 +2,21 @@
 
 namespace App\Controllers;
 
+use phpDocumentor\Reflection\DocBlock\Tags\Var_;
+
 class PeminjamanBuku extends BaseController
 {
     public function List()
     {
+        $dataPeminjaman = model('Peminjaman')
+            ->join('Anggota', 'Peminjaman.id_anggota = Anggota.id_anggota')
+            ->join('Buku', 'Peminjaman.id_buku = Buku.id_buku')
+            ->join('Rak', 'Rak.id_rak = Buku.id_rak')
+            ->orderBy('id_peminjaman')
+            ->find();
+
         return view('PeminjamanBukuView',[
-            'data' => model('Peminjaman')->getAll()
+            'data' => $dataPeminjaman
         ]);
     }
 
@@ -21,8 +30,22 @@ class PeminjamanBuku extends BaseController
 
     public function KembalikanBuku($id)
     {
+        $dataPeminjaman = model('Peminjaman')
+            ->join('Anggota', 'Peminjaman.id_anggota = Anggota.id_anggota')
+            ->join('Buku', 'Peminjaman.id_buku = Buku.id_buku')
+            ->join('Rak', 'Rak.id_rak = Buku.id_rak')
+            ->where('id_peminjaman', $id)
+            ->first();
+
+        $totalHariTerlambat = 1;
+        $totalDenda = 10000;
+        $totalBayar = 10000;
+
         return view('PengembalianView', [
-            'dataPeminjaman' => model('Peminjaman')->getAll()
+            'dataPeminjaman' => $dataPeminjaman,
+            'totalHariTerlambat' => $totalHariTerlambat,
+            'totalDenda' => $totalDenda,
+            'totalBayar' => $totalBayar,
         ]);
     }
 
@@ -40,5 +63,11 @@ class PeminjamanBuku extends BaseController
         ]);
 
         return redirect()->to(base_url('PeminjamanBuku/List'));
+    }
+
+    private function getDiffDate($date1, $date2){
+        $date1 = date('Y-m-d');
+        $hasil = (strtotime($date2) - strtotime($date1))/(60*60*24);
+        return $hasil;
     }
 }
