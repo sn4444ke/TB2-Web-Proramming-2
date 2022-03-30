@@ -265,7 +265,7 @@
 				<?php if ($empty) : ?>
 
 					<div class="alert">
-						No $_GET, $_POST, or $_COOKIE Information to show.
+						No $this->request->getVar, $_POST, or $_COOKIE Information to show.
 					</div>
 
 				<?php endif; ?>

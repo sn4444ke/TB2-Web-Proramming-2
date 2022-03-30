@@ -12,7 +12,7 @@ class Pengembalian extends Model
 
     protected $allowedFields = [
         'id_pengembalian',
-        'id_peminjaman',
+        'id_pinjam',
         'tanggal_pengembalian',
         'total_pembayaran',
         'denda',

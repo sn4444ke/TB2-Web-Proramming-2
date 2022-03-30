@@ -18,4 +18,18 @@ class Peminjaman extends Model
         'id_anggota',
         'id_petugas'
     ];
+
+    // Validation
+    protected $validationRules = [
+        'kode_peminjaman' => 'required',
+        'tanggal_pinjam' => 'required',
+        'tanggal_kembali' => 'required',
+        'id_buku' => 'required',
+        'id_anggota' => 'required',
+        'id_petugas' => 'required'
+    ];
+
+    public function geterror(){
+        return $this->db->error();
+    }
 }

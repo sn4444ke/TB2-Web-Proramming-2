@@ -63,7 +63,7 @@
                 </a>
                 <div id="menu-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url().'/Buku/List' ?>">List Buku</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/Buku' ?>">List Buku</a>
                         <a class="collapse-item" href="<?php echo base_url().'/Buku/Tambah' ?>">Tambah Buku</a>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 </a>
                 <div id="menu-user" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url().'/User/List' ?>">List User</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/User' ?>">List User</a>
                         <a class="collapse-item" href="<?php echo base_url().'/User/Tambah' ?>">Tambah User</a>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                 </a>
                 <div id="menu-anggota" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url().'/Anggota/List' ?>">List Anggota</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/Anggota' ?>">List Anggota</a>
                         <a class="collapse-item" href="<?php echo base_url().'/Anggota/Tambah' ?>">Tambah Anggota</a>
                     </div>
                 </div>
@@ -140,20 +140,6 @@
                         </button>
                     </form>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -163,22 +149,6 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </li>
 
                         <!-- Nav Item - Alerts -->
@@ -352,7 +322,7 @@
                                 <!-- Topbar Search -->
                                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?php echo base_url().'/User/Search'; ?>" method="GET">
                                     <div class="input-group">
-                                        <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Username" aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fas fa-search fa-sm"></i>

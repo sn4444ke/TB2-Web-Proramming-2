@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Buku extends BaseController
 {
-    public function List()
+    public function index()
     {
         $buku = model("Buku");
 
@@ -16,7 +16,10 @@ class Buku extends BaseController
     public function Search()
     {
         $buku = model("Buku");
-        $buku = $buku->where('kode_buku', $_GET['search'])->find();
+        if($this->request->getVar('search') && $this->request->getVar('search') != ''){
+            $buku = $buku->where('kode_buku', $this->request->getVar('search'));
+        }
+        $buku = $buku->find();
         
         return view('BukuView', [
             'data' => $buku
@@ -42,7 +45,7 @@ class Buku extends BaseController
             $buku->insert($data);
         }
 
-        return redirect()->to(base_url('Buku/List'));
+        return redirect()->to(base_url('Buku'));
     }
 
     public function HapusBuku($id)
@@ -50,7 +53,7 @@ class Buku extends BaseController
         $buku = model("Buku");
         $buku->where('id_buku', $id)->delete();
 
-        return redirect()->to(base_url('Buku/List'));
+        return redirect()->to(base_url('Buku'));
     }
 
     public function EditBuku($id)
@@ -73,6 +76,6 @@ class Buku extends BaseController
         $buku = $buku->where('id_buku', $id);
         $buku->update($id, $data);
 
-        return redirect()->to(base_url('Buku/List'));
+        return redirect()->to(base_url('Buku'));
     }
 }

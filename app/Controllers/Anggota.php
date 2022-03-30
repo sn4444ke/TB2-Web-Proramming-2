@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 class Anggota extends BaseController
 {
-    public function List()
+    public function index()
     {
         // return view('UserView');
-        $anggota = model("App\Models\Anggota");
+        $anggota = model("Anggota");
         
         return view('AnggotaView', [
             'data' => $anggota->findAll()
@@ -16,14 +16,15 @@ class Anggota extends BaseController
 
     public function Search()
     {
-        $anggota = model("App\Models\Anggota");
-        $anggota = $anggota->where('kode_anggota', $_GET['search'])->find();
-        
+        $anggota = model("Anggota");
+        if($this->request->getVar('search') && $this->request->getVar('search') != ''){
+            $anggota = $anggota->where('kode_anggota', $this->request->getVar('search'));
+        }
+        $anggota = $anggota->find();
+
         return view('AnggotaView', [
             'data' => $anggota
         ]);
-
-        return $_POST['search'];
     }
 
     public function Tambah()
@@ -45,7 +46,7 @@ class Anggota extends BaseController
             $anggota->insert($data);
         }
 
-        return redirect()->to(base_url('Anggota/List'));
+        return redirect()->to(base_url('Anggota'));
     }
 
     public function HapusAnggota($id)
@@ -53,7 +54,7 @@ class Anggota extends BaseController
         $anggota = model("Anggota");
         $anggota->where('id_anggota', $id)->delete();
 
-        return redirect()->to(base_url('Anggota/List'));
+        return redirect()->to(base_url('Anggota'));
     }
 
     public function EditAnggota($id)
@@ -76,7 +77,7 @@ class Anggota extends BaseController
         $anggota = $anggota->where('id_anggota', $id);
         $anggota->update($id, $data);
 
-        return redirect()->to(base_url('Anggota/List'));
+        return redirect()->to(base_url('Anggota'));
     }
 
 }

@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 class User extends BaseController
 {
-    public function List()
+    public function index()
     {
         // return view('UserView');
-        $user = model("App\Models\User");
+        $user = model("User");
         
         return view('UserView', [
             'data' => $user->findAll()
@@ -16,14 +16,15 @@ class User extends BaseController
 
     public function Search()
     {
-        $user = model("App\Models\User");
-        $user = $user->where('username_petugas', $_GET['search'])->find();
+        $user = model("User");
+        if($this->request->getVar('search') && $this->request->getVar('search') != ''){
+            $user = $user->where('username_petugas', $this->request->getVar('search'));
+        }
+        $user = $user->find();
         
         return view('UserView', [
             'data' => $user
         ]);
-
-        return $_POST['search'];
     }
 
     public function Tambah()
@@ -45,7 +46,7 @@ class User extends BaseController
             $user->insert($data);
         }
 
-        return redirect()->to(base_url('User/List'));
+        return redirect()->to(base_url('User'));
     }
 
     public function HapusUser($id)
@@ -53,7 +54,7 @@ class User extends BaseController
         $user = model("User");
         $user->where('id_petugas', $id)->delete();
 
-        return redirect()->to(base_url('User/List'));
+        return redirect()->to(base_url('User'));
     }
 
     public function EditUser($id)
@@ -76,7 +77,7 @@ class User extends BaseController
         $user = $user->where('id_petugas', $id);
         $user->update($id, $data);
 
-        return redirect()->to(base_url('User/List'));
+        return redirect()->to(base_url('User'));
     }
 
 }
