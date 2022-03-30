@@ -84,7 +84,7 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-anggota"
                     aria-expanded="true" aria-controls="menu-anggota">
@@ -108,8 +108,8 @@
                 </a>
                 <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Pinjam Buku</a>
-                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Kembali' ?>">Kembalikan Buku</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/List' ?>">List Peminjaman</a>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
                     </div>
                 </div>
             </li>
