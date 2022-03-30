@@ -25,6 +25,7 @@ class Login extends BaseController
         if ($user) {
             session()->set([
                 'islogin' => true,
+                'dataUser' => $user,
             ]);
             return redirect()->to(base_url('dashboard'));
         } else {

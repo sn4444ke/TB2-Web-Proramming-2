@@ -86,7 +86,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-pinjaman-buku"
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-Ran-buku"
                     aria-expanded="true" aria-controls="menu-pinjaman-buku">
                     <i class="fas fa-fw fa-book-reader"></i>
                     <span>Peminjaman Buku</span>
@@ -332,54 +332,55 @@
                             <h6 class="m-0 font-weight-bold text-primary">Pengembalian Buku</h6>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form method="post" action="<?= base_url('pengembalian'); ?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="kode_peminjaman">Kode Peminjaman</label>
-                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $dataPeminjaman->kode_peminjaman ?>">
+                                        <input type="email" name="kode_pinjaman" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $dataPeminjaman->kode_peminjaman ?>">
                                     </div>
                                 </div>
+                                <input type="hidden" name="id_pinjaman" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $dataPeminjaman->id_peminjaman ?>">
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="peminjam">Peminjam</label>
-                                        <input type="email" class="form-control" id="peminjam" readonly="true" value="<?php echo $dataPeminjaman->nama_anggota ?>">
+                                        <input type="email" name="peminjam" class="form-control" id="peminjam" readonly="true" value="<?php echo $dataPeminjaman->nama_anggota ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
                                         <label for="tanggal_pinjam">Tanggal Pinjam</label>
-                                        <input type="email" class="form-control" id="tanggal_pinjam" readonly="true" value="<?php echo $dataPeminjaman->tanggal_pinjam ?>">
+                                        <input type="email" name="tanggal_pinjam" class="form-control" id="tanggal_pinjam" readonly="true" value="<?php echo $dataPeminjaman->tanggal_pinjam ?>">
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="estimasi_tanggal_kembali">Tanggal Kembali (Estimasi)</label>
-                                        <input type="email" class="form-control" id="estimasi_tanggal_kembali" readonly="true" value="<?php echo $dataPeminjaman->tanggal_kembali ?>">
+                                        <input type="email" name="tanggal_estimasi" class="form-control" id="estimasi_tanggal_kembali" readonly="true" value="<?php echo $dataPeminjaman->tanggal_kembali ?>">
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="kode_peminjaman">Tanggal Kembali (Aktual)</label>
-                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo date('Y-m-d') ?>">
+                                        <input type="email" name="tanggal_kembali" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo date('Y-m-d') ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label for="kode_peminjaman">Total Terlambat (Hari)</label>
-                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalHariTerlambat ?>">
+                                        <input type="email" name="terlambat" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalHariTerlambat ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label for="kode_peminjaman">Total Denda (Rp)</label>
-                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalDenda ?>">
+                                        <input type="email" name="total_denda" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalDenda ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label for="kode_peminjaman">Total Bayar (Rp)</label>
-                                        <input type="email" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalBayar ?>">
+                                        <input type="email" name="total_bayar" class="form-control" id="kode_peminjaman" readonly="true" value="<?php echo $totalBayar ?>">
                                     </div>
                                 </div>
 
