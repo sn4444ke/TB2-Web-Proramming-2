@@ -116,7 +116,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url().'/PeminjamanBuku/Pengembalian' ?>">
+                <a class="nav-link" href="<?php echo base_url().'/Pengembalian' ?>">
                 <i class="fas fa-fw fa-dollar-sign"></i>
                 <span>List Pengembalian</span></a>
             </li>
@@ -281,7 +281,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo session()->dataUser->nama_petugas ?></span>
                                 <img class="img-profile rounded-circle" src="<?php echo base_url() ?>/template/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->

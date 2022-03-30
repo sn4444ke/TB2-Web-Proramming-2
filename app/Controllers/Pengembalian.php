@@ -13,11 +13,11 @@ class Pengembalian extends BaseController
             ->join('Anggota', 'Peminjaman.id_anggota = Anggota.id_anggota')
             ->join('Buku', 'Peminjaman.id_buku = Buku.id_buku')
             ->join('Rak', 'Rak.id_rak = Buku.id_rak')
-            ->join('pengembalian', 'id_peminjaman = id_pinjam', 'left')
+            ->join('pengembalian', 'id_peminjaman = id_pinjam')
             ->orderBy('id_peminjaman')
             ->find();
 
-        return view('PengembalianView',[
+        return view('PengembalianBukuView',[
             'data' => $dataPeminjaman
         ]);
     }
@@ -28,7 +28,7 @@ class Pengembalian extends BaseController
         $dataPeminjaman = $dataPeminjaman->join('Anggota', 'Peminjaman.id_anggota = Anggota.id_anggota');
         $dataPeminjaman = $dataPeminjaman->join('Buku', 'Peminjaman.id_buku = Buku.id_buku');
         $dataPeminjaman = $dataPeminjaman->join('Rak', 'Rak.id_rak = Buku.id_rak');
-        $dataPeminjaman = $dataPeminjaman->join('pengembalian', 'id_peminjaman = id_pinjam', 'left');
+        $dataPeminjaman = $dataPeminjaman->join('pengembalian', 'id_peminjaman = id_pinjam');
         if($this->request->getVar('search') && $this->request->getVar('search') != ''){
             $dataPeminjaman = $dataPeminjaman->where('kode_peminjaman', $this->request->getVar('search'));
         }

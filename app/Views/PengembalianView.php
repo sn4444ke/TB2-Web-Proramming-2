@@ -101,17 +101,24 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-Ran-buku"
-                    aria-expanded="true" aria-controls="menu-pinjaman-buku">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-pengembalian-buku"
+                    aria-expanded="true" aria-controls="menu-pengembalian-buku">
                     <i class="fas fa-fw fa-book-reader"></i>
                     <span>Peminjaman Buku</span>
                 </a>
-                <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="menu-pengembalian-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku' ?>">List Peminjaman</a>
                         <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
                     </div>
                 </div>
+            </li>
+            
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url().'/Pengembalian' ?>">
+                <i class="fas fa-fw fa-dollar-sign"></i>
+                <span>List Pengembalian</span></a>
             </li>
 
             <!-- Divider -->
@@ -274,7 +281,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo session()->dataUser->nama_petugas ?></span>
                                 <img class="img-profile rounded-circle" src="<?php echo base_url() ?>/template/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
