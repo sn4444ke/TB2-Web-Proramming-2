@@ -339,58 +339,47 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Data Buku</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Data Anggota</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tambah Data Buku</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Tambah Data Anggota</h6>
                         </div>
                         <div class="card-body">
                             <form action="<?php echo $action ?>" method="POST">
-                                <input name="id_buku" type="hidden" class="form-control" id="inputEmail4" value="<?php echo $dataBuku->id_buku ?>">
+                                <input name="id_anggota" type="hidden" class="form-control" id="id_anggota" value="<?php echo $dataAnggota->id_anggota; ?>">
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Kode Buku</label>
-                                    <input name="kode_buku" type="text" class="form-control" id="inputEmail4" value="<?php echo $dataBuku->kode_buku ?>" required>
+                                        <label for="inputEmail4">Nama</label>
+                                        <input name="nama_anggota" type="text" class="form-control" id="nama_anggota" value="<?php echo $dataAnggota->nama_anggota; ?>" required>
                                     </div>
                                     <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Judul Buku</label>
-                                    <input name="judul_buku" type="text" class="form-control" id="inputPassword4" value="<?php echo $dataBuku->judul_buku ?>" required>
+                                        <label for="inputEmail4">Kode</label>
+                                        <input name="kode_anggota" type="text" class="form-control" id="kode_anggota" value="<?php echo $dataAnggota->kode_anggota; ?>" required>
                                     </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="penulis-buku">Penulis Buku</label>
-                                    <input name="penulis_buku" type="text" class="form-control" id="penulis-buku" value="<?php echo $dataBuku->penulis_buku ?>" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="penerbit-buku">Penerbit Buku</label>
-                                    <input name="penerbit_buku" type="text" class="form-control" id="penerbit-buku" value="<?php echo $dataBuku->penerbit_buku ?>" required>
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                    <label for="tahun-penerbit">Tahun Penerbitan</label>
-                                    <input name="tahun_penerbit" type="number" min="1900" max="2099" step="1" class="form-control" id="tahun-penerbit" value="<?php echo $dataBuku->tahun_penerbit ?: date('Y') ?>" required>
+                                    <div class="form-group col-md-12">
+                                    <label for="inputPassword4">Jurusan</label>
+                                        <select id="jurusan_anggota" class="form-control" name="jurusan_anggota" required>
+                                            <option value="Informatika" <?php echo $dataAnggota->jurusan_anggota == "Informatika" ? 'selected' : ''; ?> >Informatika</option>
+                                            <option value="Mesin" <?php echo $dataAnggota->jurusan_anggota == "Mesin" ? 'selected' : ''; ?> >Mesin</option>
+                                            <option value="Sipil" <?php echo $dataAnggota->jurusan_anggota == "Sipil" ? 'selected' : ''; ?> >Sipil</option>
+                                        </select>
+                                    </div>                                    
+                                </div>
+
+                               <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Alamat</label>
+                                        <input name="alamat_anggota" type="text" class="form-control" id="alamat_anggota" value="<?php echo $dataAnggota->alamat_anggota; ?>" required>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                    <label for="rak">Rak</label>
-                                    <select id="rak" class="form-control" name="id_rak" required>
-                                        <?php foreach($dataRak as $value) { ?>
-                                            <option value="<?php echo $value->id_rak ?>" <?php echo $value->id_rak == $dataBuku->id_rak || $value->id_rak == 1 ? 'selected' : '' ?>><?php echo $value->nama_rak ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="harga_per_hari">Harga Perhari (Rp)</label>
-                                        <input name="harga_per_hari" type="number" step="1000" class="form-control" id="harga_per_hari" value="<?php echo $dataBuku->harga_per_hari ?: 1000 ?>" required>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="stok">Stok</label>
-                                        <input name="stok" type="number" step="1" class="form-control" id="stok" value="<?php echo isset($dataBuku->stok) ? $dataBuku->stok : 1 ?>" required>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Nomor Telp</label>
+                                        <input name="no_telp_anggota" type="text" class="form-control" id="no_telp_anggota" value="<?php echo $dataAnggota->no_telp_anggota; ?>" required>
                                     </div>
                                 </div>
 

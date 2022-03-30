@@ -26,4 +26,10 @@ class Anggota extends Model
         'no_telp_anggota' => 'required',
         'alamat_anggota' => 'required',
     ];
+
+    public function getAll(){
+        $builder = $this->db->table('anggota');
+        $query = $builder->get();
+        return $query->getResult();
+    }
 }
