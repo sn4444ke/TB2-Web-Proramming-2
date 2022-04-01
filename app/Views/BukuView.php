@@ -364,7 +364,7 @@
                                                 <td><?php echo $value->penerbit_buku ?></td>
                                                 <td><?php echo $value->tahun_penerbit ?></td>
                                                 <td><?php echo $value->nama_rak ?></td>
-                                                <td><?php echo $value->stok ?></td>
+                                                <td align="center"><?php echo $value->stok ?></td>
                                                 <td align="center">
                                                     <a href="<?php echo base_url().'/Buku/EditBuku/'.$value->id_buku ?>"><i class="fas fa-edit"></i></a>
                                                     <a href="<?php echo base_url().'/Buku/HapusBuku/'.$value->id_buku ?>"><i class="fas fa-trash"></i></a>
