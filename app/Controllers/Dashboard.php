@@ -14,7 +14,7 @@ class Dashboard extends BaseController
         $earningOverview = $report->getEarningOverview();
         $earningSource = $report->getEarningSource();
         $bukuDipinjam = $progressPengembalian->buku_dipinjam;
-        $progressPengembalian = ceil(($progressPengembalian->buku_dikembalikan / $progressPengembalian->buku_dipinjam) * 100);
+        $progressPengembalian = ceil(($progressPengembalian->buku_dikembalikan / isset($progressPengembalian->buku_dipinjam) ? $progressPengembalian->buku_dipinjam : 0) * 100);
         $progressPengembalian = $progressPengembalian >= 100 ? 100 : $progressPengembalian ;
         
 
