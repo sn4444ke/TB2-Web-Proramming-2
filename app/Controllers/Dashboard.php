@@ -17,7 +17,6 @@ class Dashboard extends BaseController
         $progressPengembalian = ceil(($progressPengembalian->buku_dikembalikan / isset($progressPengembalian->buku_dipinjam) ? $progressPengembalian->buku_dipinjam : 0) * 100);
         $progressPengembalian = $progressPengembalian >= 100 ? 100 : $progressPengembalian ;
         
-
         return view('DashboardView', [
             'pendapatanBulanan' => "Rp ".number_format($pendapatanBulanan, 0, ',','.'),
             'pendapatanTahunan' => "Rp ".number_format($pendapatanTahunan, 0, ',','.'),
