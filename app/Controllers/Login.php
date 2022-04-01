@@ -5,16 +5,10 @@ namespace App\Controllers;
 class Login extends BaseController
 {
     public function index()
-    {
-        // session()->setFlashdata('item', 'value');
-        // session()->set([
-        //     'islogin' => true,
-        // ]);
-
-        // var_dump(session()->getFlashdata('item'));
-        
+    {   
         return view('LoginView');
     }
+    
     public function save()
     {
         $petugas = model("User");
