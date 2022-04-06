@@ -126,7 +126,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url().'/Pengembalian' ?>">
                 <i class="fas fa-fw fa-dollar-sign"></i>
-                <span>List Pengembalian</span></a>
+                <span>Pengembalian Buku</span></a>
             </li>
 
             <!-- Divider -->
