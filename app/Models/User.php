@@ -16,25 +16,20 @@ class User extends Model
         'no_telp_petugas',
         'alamat_petugas',
         'username_petugas',
-        'password_petugas',
-        // 'stok'
+        'password_petugas'
     ];
 
     // Validation
     protected $validationRules = [
         'nama_petugas' => "required",
         'jabatan_petugas' => "required",
-        // 'no_telp_petugas' => "",
         'alamat_petugas' => "required",
         'username_petugas' => "required",
-        'password_petugas' => "required",
-        // 'harga_per_hari' => "required",
-        // 'stok' => "required"
+        'password_petugas' => "required"
     ];
 
     public function getAll(){
         $builder = $this->db->table('petugas');
-        // $builder->join('Rak', 'buku.id_rak = rak.id_rak');
         $query = $builder->get();
 
         return $query->getResult();

@@ -54,7 +54,7 @@
                 Menu
             </div>
 
-           <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-buku"
                     aria-expanded="true" aria-controls="menu-buku">
@@ -64,7 +64,9 @@
                 <div id="menu-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url().'/Buku' ?>">List Buku</a>
-                        <a class="collapse-item" href="<?php echo base_url().'/Buku/Tambah' ?>">Tambah Buku</a>
+                        <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
+                            <a class="collapse-item" href="<?php echo base_url().'/Buku/Tambah' ?>">Tambah Buku</a>
+                        <?php } ?>
                     </div>
                 </div>
             </li>
@@ -79,12 +81,14 @@
                 <div id="menu-user" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url().'/User' ?>">List User</a>
-                        <a class="collapse-item" href="<?php echo base_url().'/User/Tambah' ?>">Tambah User</a>
+                        <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
+                            <a class="collapse-item" href="<?php echo base_url().'/User/Tambah' ?>">Tambah User</a>
+                        <?php } ?>
                     </div>
                 </div>
             </li>
 
-             <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-anggota"
                     aria-expanded="true" aria-controls="menu-anggota">
@@ -94,11 +98,13 @@
                 <div id="menu-anggota" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url().'/Anggota' ?>">List Anggota</a>
-                        <a class="collapse-item" href="<?php echo base_url().'/Anggota/Tambah' ?>">Tambah Anggota</a>
+                        <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
+                            <a class="collapse-item" href="<?php echo base_url().'/Anggota/Tambah' ?>">Tambah Anggota</a>
+                        <?php } ?>
                     </div>
                 </div>
             </li>
-            
+
            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#menu-pinjaman-buku"
@@ -109,7 +115,9 @@
                 <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku' ?>">List Peminjaman</a>
-                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
+                        <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
+                            <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
+                        <?php } ?>
                     </div>
                 </div>
             </li>
@@ -351,7 +359,9 @@
                                             <th>Tahun Penerbit</th>
                                             <th>Rak</th>
                                             <th>Stok</th>
-                                            <th>Action</th>
+                                            <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
+                                                <th>Action</th>
+                                            <?php } ?>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -365,10 +375,12 @@
                                                 <td><?php echo $value->tahun_penerbit ?></td>
                                                 <td><?php echo $value->nama_rak ?></td>
                                                 <td align="center"><?php echo $value->stok ?></td>
-                                                <td align="center">
-                                                    <a href="<?php echo base_url().'/Buku/EditBuku/'.$value->id_buku ?>"><i class="fas fa-edit"></i></a>
-                                                    <a href="<?php echo base_url().'/Buku/HapusBuku/'.$value->id_buku ?>"><i class="fas fa-trash"></i></a>
-                                                </td>
+                                                <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
+                                                    <td align="center">
+                                                        <a href="<?php echo base_url().'/Buku/EditBuku/'.$value->id_buku ?>"><i class="fas fa-edit"></i></a>
+                                                        <a href="<?php echo base_url().'/Buku/HapusBuku/'.$value->id_buku ?>"><i class="fas fa-trash"></i></a>
+                                                    </td>
+                                                <?php } ?>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
