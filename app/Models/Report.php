@@ -50,7 +50,7 @@ class Report extends Model
             $data['judul_buku'] .= $sparator.$value->judul_buku;
             $data['total_pinjam'] .= $sparator.$value->total;
         }
-
+        
         return $data;
     }
 }
