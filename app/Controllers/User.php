@@ -56,6 +56,11 @@ class User extends BaseController
 
         // kondisi jika username_petugas blm ada di dalam database, maka program akan insert, jika sudah tidak akan insert apapun
         if(!$user->where('username_petugas', $this->request->getVar('username_petugas'))->find()) {
+            $encrypter = \Config\Services::encrypter();
+            $ciphertext = bin2hex($encrypter->encrypt($data['password_petugas']));
+
+            $data['password_petugas'] = $ciphertext; 
+            // var_dump($data);
             $user->insert($data);
         }
 
