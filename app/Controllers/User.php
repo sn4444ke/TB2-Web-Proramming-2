@@ -104,6 +104,10 @@ class User extends BaseController
         $user = model("User");
         // cari User dengan id_petugas sama dengan variable id, dan langsung menghapusnya jika menemukan data
         $user = $user->where('id_petugas', $id);
+        //Encrypt password
+        $encrypter = \Config\Services::encrypter();
+        $ciphertext = bin2hex($encrypter->encrypt($data['password_petugas']));
+        $data['password_petugas'] = $ciphertext; 
         // update data yang ditemukan dengan parameter form 
         $user->update($id, $data);
         // saat semua proses selesai, redirect ke menu list user

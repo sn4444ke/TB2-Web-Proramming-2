@@ -163,7 +163,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                     <label for="inputPassword4">Password</label>
-                                    <input name="password_petugas" type="Password" class="form-control" id="password_petugas" value="<?php echo $dataUser->password_petugas; ?>" required>
+                                    <input name="password_petugas" type="Password" class="form-control" id="password_petugas" value="" required>
                                     </div>
                                 </div>
 
