@@ -115,9 +115,7 @@
                 <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku' ?>">List Peminjaman</a>
-                        <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
-                            <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
-                        <?php } ?>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
                     </div>
                 </div>
             </li>
@@ -291,9 +289,7 @@
                                             <th>Judul Buku</th>
                                             <th>Tanggal Pinjam</th>
                                             <th>Tanggal Kembali</th>
-                                            <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
-                                                <th>Action</th>
-                                            <?php } ?>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -305,11 +301,9 @@
                                                 <td><?php echo $value->judul_buku ?></td>
                                                 <td><?php echo $value->tanggal_pinjam ?></td>
                                                 <td><?php echo $value->tanggal_kembali ?></td>
-                                                <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
-                                                    <td align="center">
-                                                        <a href="<?php echo base_url().'/PeminjamanBuku/KembalikanBuku/'.$value->id_peminjaman ?>"><i class="fas fa-check"></i></a>
-                                                    </td>
-                                                <?php } ?>
+                                                <td align="center">
+                                                    <a href="<?php echo base_url().'/PeminjamanBuku/KembalikanBuku/'.$value->id_peminjaman ?>"><i class="fas fa-check"></i></a>
+                                                </td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
