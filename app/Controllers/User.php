@@ -87,14 +87,11 @@ class User extends BaseController
         $data = $this->request->getPost();
         $user = model("User");
         $user = $user->where('id_petugas', $id);
-<<<<<<< HEAD
-=======
         //Encrypt password
         $encrypter = \Config\Services::encrypter();
         $ciphertext = bin2hex($encrypter->encrypt($data['password_petugas']));
         $data['password_petugas'] = $ciphertext; 
         // update data yang ditemukan dengan parameter form 
->>>>>>> f7018bfc4aad14ba8118f8e431bb980c6712538d
         $user->update($id, $data);
     
         return redirect()->to(base_url('User'));
