@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class Rak extends Model
 {
     protected $table      = 'rak';
+    protected $primaryKey = 'id_rak';
     protected $returnType = "object";
 
     protected $allowedFields = [
