@@ -33,7 +33,7 @@ class PeminjamanBuku extends BaseController
             ->orderBy('id_peminjaman')
             ->find();
 
-        return view('PengembalianBukuView',[
+        return view('PengembalianBukuView', [
             'data' => $dataPeminjaman
         ]);
     }

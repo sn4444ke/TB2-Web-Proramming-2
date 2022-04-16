@@ -95,9 +95,7 @@
                 <div id="menu-pinjaman-buku" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku' ?>">List Peminjaman</a>
-                        <?php if (session()->dataUser->jabatan_petugas == 'Admin') { ?>
-                            <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
-                        <?php } ?>
+                        <a class="collapse-item" href="<?php echo base_url().'/PeminjamanBuku/Pinjam' ?>">Peminjaman Buku</a>
                     </div>
                 </div>
             </li>
@@ -179,11 +177,11 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="harga_per_hari">Harga Perhari (Rp)</label>
-                                        <input name="harga_per_hari" type="number" step="1000" class="form-control" id="harga_per_hari" value="<?php echo $dataBuku->harga_per_hari ?: 1000 ?>" required>
+                                        <input name="harga_per_hari" type="number" step="1000" min="1000" class="form-control" id="harga_per_hari" value="<?php echo $dataBuku->harga_per_hari ?: 1000 ?>" required>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="stok">Stok</label>
-                                        <input name="stok" type="number" step="1" class="form-control" id="stok" value="<?php echo isset($dataBuku->stok) ? $dataBuku->stok : 1 ?>" required>
+                                        <input name="stok" type="number" step="1" min="1" class="form-control" id="stok" value="<?php echo isset($dataBuku->stok) ? $dataBuku->stok : 1 ?>" required>
                                     </div>
                                 </div>
 
